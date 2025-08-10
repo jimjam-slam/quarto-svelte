@@ -46,6 +46,10 @@ jobs:
         run: cp -rf _extensions/quarto-svelte docs/_extensions/quarto-svelte
         shell: bash
 
+      - name: List contents of quarto-svelte extension directory
+        run: ls -a docs/_extensions/quarto-svelte
+        shell: bash
+
       - name: Render quarto-svelte docs
         uses: quarto-dev/quarto-actions/render@v2
         with:
