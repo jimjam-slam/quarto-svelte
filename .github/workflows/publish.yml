@@ -57,7 +57,7 @@ jobs:
           test -f docs/_site/examples/barchart/BarChart.js &&
           test -f docs/_site/examples/time-series/TimeSeriesChart.js
       
-        - name: Setup Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
       
       - name: Upload docs/ artifact
@@ -65,7 +65,7 @@ jobs:
         with:
           path: "./docs/_site"
       
-        - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
           
