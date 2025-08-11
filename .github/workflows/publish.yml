@@ -28,6 +28,8 @@ jobs:
       # use latest release version to publish docs
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "release"
       
       - name: Install Node
         uses: actions/setup-node@v4

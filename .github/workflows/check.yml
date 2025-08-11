@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "windows-latest"]
-        quarto: ["latest", "pre-release"]
+        quarto: ["release", "pre-release"]
     
     runs-on: ${{ matrix.os }}
     
