@@ -29,17 +29,14 @@ jobs:
         with:
           version: 1.5.25
       
-        - name: Install Node
+      - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
       
-      - name: Create docs _extensions folder
-        run: mkdir docs/_extensions
-        shell: bash
-      
-      - name: Copy quarto-svelte extension into docs 
-        run: cp -rf _extensions/quarto-svelte docs/_extensions/quarto-svelte
+      - name: Copy quarto-evelte extension
+        run: ./copy-extension
+        working-directory: ./docs
         shell: bash
 
       - name: Install quarto-svelte docs npm dependencies
