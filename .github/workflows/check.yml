@@ -15,6 +15,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "windows-latest"]
+        quarto: ["latest", "pre-release"]
     
     runs-on: ${{ matrix.os }}
     
@@ -24,10 +25,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # check on both latest and prerelease
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.5.25
+          version: ${{ matrix.quarto }}
 
       - name: Install Node
         uses: actions/setup-node@v4
