@@ -40,10 +40,6 @@ jobs:
         run: ./copy-extension.sh
         working-directory: ./docs
         shell: bash
-
-      - name: List copied extension dir contents
-        run: ls -a _extensions/quarto-svelte
-        working-directory: ./docs
       
       - name: Render quarto-svelte docs
         uses: quarto-dev/quarto-actions/render@v2
@@ -51,6 +47,7 @@ jobs:
           path: docs
       
       - name: Verify that compiled Svelte .js bundles are present
+        shell: bash
         run: |
           test -f docs/_site/Circles.js &&
           test -f docs/_site/examples/barchart/BarChart.js &&
