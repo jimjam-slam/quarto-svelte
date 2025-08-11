@@ -40,7 +40,7 @@ jobs:
         shell: bash
 
       - name: List copied extension dir contents
-        run: ls -a _exensions/quarto-svelte
+        run: ls -a _extensions/quarto-svelte
         working-directory: ./docs
       
       - name: Render quarto-svelte docs
