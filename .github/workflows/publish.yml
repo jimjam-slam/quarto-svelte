@@ -34,13 +34,13 @@ jobs:
         with:
           node-version: 20
       
-      - name: Copy quarto-evelte extension
+      - name: Copy quarto-evelte extension; run npm install
         run: ./copy-extension.sh
         working-directory: ./docs
         shell: bash
 
-      - name: Install quarto-svelte docs npm dependencies
-        run: npm install
+      - name: List copied extension dir contents
+        run: ls -a _exensions/quarto-svelte
         working-directory: ./docs
       
       - name: Render quarto-svelte docs
