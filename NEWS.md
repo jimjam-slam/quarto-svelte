@@ -1,3 +1,8 @@
+## quarto-svelte 2.0.1
+
+- Improvement: extraneous OJS import code is removed from bootstrapping script
+- Fix errors in GitHub Actions workflows that prevented examples in the documentation site from appearing. GHA actions now run on latest Quarto release (check workflow also runs on latest prerelease).
+
 ## quarto-svelte 2.0.0
 
 - Rename Sverto to quarto-svelte

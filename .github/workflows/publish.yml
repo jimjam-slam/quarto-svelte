@@ -22,34 +22,45 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      
       - uses: actions/checkout@v4
+
+      # use latest release version to publish docs
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.5.25
+          version: "release"
+      
       - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install quarto-svelte docs npm dependencies
-        run: npm install
+      
+      - name: Copy quarto-evelte extension; run npm install
+        run: ./copy-extension.sh
         working-directory: ./docs
-      - name: Create docs _extensions folder
-        run: mkdir docs/_extensions
         shell: bash
-      - name: Copy quarto-svelte extension into docs 
-        run: cp -rf _extensions/quarto-svelte docs/_extensions/quarto-svelte
-        shell: bash
+      
       - name: Render quarto-svelte docs
         uses: quarto-dev/quarto-actions/render@v2
         with:
           path: docs
+      
+      - name: Verify that compiled Svelte .js bundles are present
+        shell: bash
+        run: |
+          test -f docs/_site/Circles.js &&
+          test -f docs/_site/examples/barchart/BarChart.js &&
+          test -f docs/_site/examples/time-series/TimeSeriesChart.js
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      
       - name: Upload docs/ artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./docs/_site"
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
