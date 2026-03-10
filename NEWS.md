@@ -1,3 +1,7 @@
+## quarto-svelte 2.0.2
+
+- Bump rollup dependency to address [security alert](https://github.com/advisories/GHSA-5c6j-r48x-rmvq)
+
 ## quarto-svelte 2.0.1
 
 - Improvement: extraneous OJS import code is removed from bootstrapping script
