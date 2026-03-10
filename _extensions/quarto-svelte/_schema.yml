@@ -1,0 +1,11 @@
+$schema: https://m.canouil.dev/quarto-wizard/assets/schema/v1/extension-schema.json
+
+options:
+  use:
+    type: array
+    items:
+      type: string
+    description: List of .svelte component paths to compile and inject for this document.
+    completion:
+      type: file
+      extensions: [.svelte]
