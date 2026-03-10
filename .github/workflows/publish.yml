@@ -36,6 +36,11 @@ jobs:
         with:
           node-version: 20
       
+      - name: Copy quarto-evelte extension; run npm install
+        run: ./copy-extension.sh
+        working-directory: ./docs
+        shell: bash
+      
       - name: Render quarto-svelte docs
         uses: quarto-dev/quarto-actions/render@v2
         with:
