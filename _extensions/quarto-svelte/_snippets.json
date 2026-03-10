@@ -1,0 +1,20 @@
+{
+  "Svelte filter setup": {
+    "prefix": "setup",
+    "body": [
+      "filters:",
+      "  - quarto-svelte",
+      "quarto-svelte:",
+      "  use:",
+      "    - ${1:components/Widget.svelte}"
+    ],
+    "description": "Enable the filter and register Svelte component source files."
+  },
+  "Svelte component tag": {
+    "prefix": "component",
+    "body": [
+      "<${1:my-widget}></${1:my-widget}>"
+    ],
+    "description": "Insert a custom element tag for a compiled Svelte component."
+  }
+}
