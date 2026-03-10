@@ -1,5 +1,7 @@
 project:
   type: website
+  pre-render:
+    - './copy-extension.sh'
   
 execute:
   freeze: auto
